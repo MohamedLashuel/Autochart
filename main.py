@@ -20,21 +20,29 @@ args = parser.parse_args()
 
 if args.pdb: pdb.set_trace()
 
-input_text = processTxt(args.input_file)
+def convertToSSC(input_file, output_file):
+    input_text = processTxt(input_file)
 
-if args.inject_file:
-    destination_text = processTxt(args.inject_file)
-
-    injected_list = injectChart(input_text, destination_text, args.meter)
-
-    injected_text = listToText(injected_list)
-
-    writeTxt(args.inject_file, injected_text)
-else:
     phrases = processLines(input_text)
 
     measures = unpackPhrases(phrases)
 
     measure_text = measuresToText(measures)
 
-    writeTxt(args.output_file, measure_text)
+    writeTxt(output_file, measure_text)
+
+def injectSSCToChart(input_file, inject_file, meter):
+    input_text = processTxt(input_file)
+
+    destination_text = processTxt(inject_file)
+
+    injected_list = injectChart(input_text, destination_text, meter)
+
+    injected_text = listToText(injected_list)
+
+    writeTxt(inject_file, injected_text)
+    
+if args.inject_file:
+    injectSSCToChart(args.input_file, args.inject_file, args.meter)
+else:
+    convertToSSC(args.input_file, args.output_file)
