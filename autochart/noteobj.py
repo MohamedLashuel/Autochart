@@ -1,5 +1,5 @@
 from enum import Enum, IntEnum
-from based import *
+from autochart.based import *
 import copy
 
 class Note():

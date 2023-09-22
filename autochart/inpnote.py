@@ -1,4 +1,4 @@
-from noteobj import *
+from autochart.noteobj import *
 from collections import OrderedDict
 
 ALL_PANELS = {Panel.L, Panel.D, Panel.U, Panel.R}

@@ -1,5 +1,5 @@
-from noteobj import *
-from inpnote import *
+from autochart.noteobj import *
+from autochart.inpnote import *
 
 def processTxt(filename):
     with open(filename, 'r') as file:
@@ -38,3 +38,25 @@ def listToText(lst):
     for item in lst: result += (item + '\n')
 
     return result
+
+def convertToSSC(input_file, output_file):
+    input_text = processTxt(input_file)
+
+    phrases = processLines(input_text)
+
+    measures = unpackPhrases(phrases)
+
+    measure_text = measuresToText(measures)
+
+    writeTxt(output_file, measure_text)
+
+def injectSSCToChart(input_file, inject_file, meter):
+    input_text = processTxt(input_file)
+
+    destination_text = processTxt(inject_file)
+
+    injected_list = injectChart(input_text, destination_text, meter)
+
+    injected_text = listToText(injected_list)
+
+    writeTxt(inject_file, injected_text)
