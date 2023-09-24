@@ -1,20 +1,20 @@
-import pprint
+from pprint import pprint
 
 def doTabs(tabs):
 	# Print number of tabs
-	for i in range(tabs):
+	for _ in range(tabs):
 		print("\t", end="")
 
 def pv(obj):
 	# Print variables of an object cleanly
-	pprint.pprint(vars(obj))
+	pprint(vars(obj))
 
 def pt(tabs, *objs):
 	# Print objects without separation
 	doTabs(tabs)
-	limit=len(objs)
+	limit = len(objs)
 	for i, obj in enumerate(objs):
-		if i==limit-1:
+		if i == limit - 1:
 			print(obj)
 		else:
 			print(obj, end="  ;  ")
@@ -27,18 +27,18 @@ def pa(objs, tabs):
 
 def ps(obj):
 	# Print the object simply
-	if len(str(obj))<21:
+	if len(str(obj)) < 21:
 		print(obj)
 	else:
 		try:
-			size=f", with size {len(obj)}"
+			size = f", with size {len(obj)}"
 		except AttributeError:
-			size=""
+			size = ""
 		print(f"{type(obj)} object{size}")
 
-def pp(obj, tabs=0):
+def pp(obj, tabs = 0):
 	# Smart print for each item
-	match obj:
+	match type(obj):
 		case list():
 			pa(obj, tabs)
 		case tuple():
