@@ -1,7 +1,7 @@
 from autochart.noteobj import *
 from autochart.inpnote import *
 
-def processTxt(filename):
+def processTxt(filename: str) -> list[str]:
     with open(filename, 'r') as file:
         # Strip to chop off the \n at the end
         return [line.strip() for line in file] 

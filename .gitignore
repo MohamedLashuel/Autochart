@@ -1,5 +1,6 @@
 __pycache__
+*.egg-info
 *.txt
-*.ssc
 *.old
 *.mp3
+dist
