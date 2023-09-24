@@ -18,7 +18,8 @@ def injectChart(chart, dest_text, meter):
     return dest_text
 
 def writeTxt(filename, text):
-    with open(filename, 'w') as file: file.write(text)
+    with open(filename, 'w') as file:
+		file.write(text)
 
 def measureToText(measure):
     beat_text = [beat.toText() for beat in measure]
