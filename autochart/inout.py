@@ -31,14 +31,20 @@ def listToText(lst):
 	for item in lst: result += (item + '\n')
 	return result
 
-def convertToSSC(input_file, output_file):
+from os import getcwd
+
+def convertToSSC(input_file: str, output_file: str):
+	input_file = getcwd() + '/' + input_file
+	output_file = getcwd() + '/' + output_file
 	input_text = processTxt(input_file)
 	phrases = processLines(input_text)
 	measures = unpackPhrases(phrases)
 	measure_text = measuresToText(measures)
 	writeTxt(output_file, measure_text)
 
-def injectSSCToChart(input_file, inject_file, meter):
+def injectSSCToChart(input_file: str, inject_file: str, meter):
+	input_file = getcwd() + '/' + input_file
+	inject_file = getcwd() + '/' + inject_file
 	input_text = processTxt(input_file)
 	destination_text = processTxt(inject_file)
 	injected_list = injectChart(input_text, destination_text, meter)
