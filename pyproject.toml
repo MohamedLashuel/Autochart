@@ -1,8 +1,5 @@
 [project]
 name = "autochart"
 version = "0.0.1"
-authors = [
-  { name="trustytrojan" },
-  { name="MohamedLashuel" }
-]
+authors = [{ name = "trustytrojan" }, { name = "MohamedLashuel" }]
 description = "A library for converting between a concise, readable DDR chart syntax to StepMania charts"
