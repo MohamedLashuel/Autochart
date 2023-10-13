@@ -1,5 +1,4 @@
-from autochart.noteobj import *
-from autochart.inpnote import *
+from .inpnote import processLines, unpackPhrases
 
 def processTxt(filename: str) -> list[str]:
 	with open(filename, 'r') as file:

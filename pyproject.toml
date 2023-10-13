@@ -2,6 +2,7 @@
 name = "autochart"
 version = "0.0.1"
 authors = [
-  { name="Example Author", email="author@example.com" },
+  { name="trustytrojan" },
+  { name="MohamedLashuel" }
 ]
-description = "A small example package"
+description = "A library for converting between a concise, readable DDR chart syntax to StepMania charts"

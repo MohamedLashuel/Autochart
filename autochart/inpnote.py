@@ -1,4 +1,4 @@
-from autochart.noteobj import *
+from .noteobj import *
 from collections import OrderedDict
 from random import choice
 

@@ -1,5 +1,5 @@
 from enum import Enum, IntEnum
-from autochart.based import *
+from .based import matchVal
 import copy
 
 class NoteType(Enum):
