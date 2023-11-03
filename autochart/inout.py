@@ -10,8 +10,7 @@ def injectChart(chart, dest_text, meter):
 	meter_line = dest_text.index(f"#METER:{meter};")
 	chart_start = dest_text.index('#NOTES:', meter_line)
 	chart_end = dest_text.index(';', chart_start)
-	dest_text = dest_text[:(chart_start + 1)] + chart + dest_text[chart_end:]
-	return dest_text
+	return dest_text[:(chart_start + 1)] + chart + dest_text[chart_end:]
 
 def writeTxt(filename, text):
 	with open(filename, 'w') as file:
@@ -42,7 +41,7 @@ def convertToSSC(input_file: str, output_file: str):
 	measure_text = measuresToText(measures)
 	writeTxt(output_file, measure_text)
 
-def injectSSCToChart(input_file: str, inject_file: str, meter):
+def injectSSCToChart(input_file: str, inject_file: str, meter: int):
 	input_file = getcwd() + '/' + input_file
 	inject_file = getcwd() + '/' + inject_file
 	input_text = processTxt(input_file)
